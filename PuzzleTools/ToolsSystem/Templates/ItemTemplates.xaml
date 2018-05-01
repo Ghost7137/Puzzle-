@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ToolsSystem">
+    <DataTemplate x:Key="RenameItemTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding OriginalName}" FontWeight="Bold"/>
+            <TextBlock Grid.Column="1" Text="{Binding Rename}" FontStyle="Italic"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>
