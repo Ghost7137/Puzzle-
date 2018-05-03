@@ -6,8 +6,45 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Templates/ItemTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Button Margin="5" Content="选择文件夹" Width="200" Click="OnFolderPickerClick"/>
+            <Button Margin="5" Content="保存修改" Width="200" Click="OnSaveButtonClick"/>
+        </StackPanel>
+        <ListView x:Name="FileList" Grid.Row="1" Margin="5" BorderBrush="SkyBlue" DisplayMemberPath="OriginalName" BorderThickness="2" ItemsSource="{Binding FilesSource}" SelectionChanged="OnListViewSelectionChanged"/>
+        <Grid Grid.Column="1" Grid.Row="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBox x:Name="EditText" Header="编辑文字" Margin="5" TextChanged="OnEditTextBoxTextChanged"/>
+            <TextBox x:Name="HandleText" Header="代替文字" Margin="5" Grid.Row="1" TextChanged="OnHandleTextBoxTextChanged"/>
+            <ComboBox x:Name="LanguageSelector" Header="选择语言" Margin="5" Grid.Row="2" HorizontalAlignment="Stretch" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="en-US"/>
+                <ComboBoxItem Content="ru-RU"/>
+            </ComboBox>
+            <CheckBox x:Name="Capitalize" Content="首字母大写" Margin="5" Grid.Row="3" HorizontalAlignment="Stretch" Click="OnCapitalizeCheckBoxClick"/>
+            <Button Content="添加模板" Click="OnAddButtonClick" Margin="5" Grid.Row="4" HorizontalAlignment="Stretch"/>
+            <ListView x:Name="Setting" Margin="5" BorderBrush="SkyBlue" BorderThickness="2" Grid.Row="5" DisplayMemberPath="EditName" ItemsSource="{Binding Information}"/>
+        </Grid>
     </Grid>
 </Page>

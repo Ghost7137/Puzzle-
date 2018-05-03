@@ -26,7 +26,7 @@
             <Button Margin="5" Content="选择文件夹" Width="200" Click="OnFolderPickerClick"/>
             <Button Margin="5" Content="保存修改" Width="200" Click="OnSaveButtonClick"/>
         </StackPanel>
-        <ListView CanDragItems="True" Grid.Row="1" Margin="5" BorderBrush="SkyBlue" BorderThickness="2" ItemTemplate="{StaticResource RenameItemTemplate}" ItemsSource="{Binding FilesSource}"/>
+        <ListView Grid.Row="1" Margin="5" BorderBrush="SkyBlue" BorderThickness="2" ItemTemplate="{StaticResource RenameItemTemplate}" ItemsSource="{Binding FilesSource}"/>
         <StackPanel Margin="5" Grid.Row="1" Grid.Column="1" Width="340">
             <RadioButton Content="数字格式" GroupName="G1" Click="OnNumberClick"/>
             <RadioButton Content="字母格式" GroupName="G1" Click="OnCharacterClick"/>
