@@ -29,28 +29,28 @@ namespace ToolsSystem
 
         private void OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            if(!args.IsSettingsSelected)
-            {
-                var selectedItem = args.SelectedItem as NavigationViewItem;
-                RootView.Header = selectedItem.Content;
-                switch (int.Parse(selectedItem.Tag.ToString()))
-                {
-                    case 0:
-                        ToolsView.Content = new BasicBulkRenameTool();
-                        break;
-                    case 1:
-                        ToolsView.Content = new AdvanceBulkRenameTool();
-                        break;
-                    case 2:
-                        ToolsView.Content = new GroupTool();
-                        break;
-                }
-            }
+            //if(!args.IsSettingsSelected)
+            //{
+            //    var selectedItem = args.SelectedItem as NavigationViewItem;
+            //    RootView.Header = selectedItem.Content;
+            //    switch (int.Parse(selectedItem.Tag.ToString()))
+            //    {
+            //        case 0:
+            //            ToolsView.Content = new BasicBulkRenameTool();
+            //            break;
+            //        case 1:
+            //            ToolsView.Content = new AdvanceBulkRenameTool();
+            //            break;
+            //        case 2:
+            //            ToolsView.Content = new GroupTool();
+            //            break;
+            //    }
+            //}
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            RootView.SelectedItem = RootView.MenuItems[0];
+            //RootView.SelectedItem = RootView.MenuItems[0];
         }
     }
 }

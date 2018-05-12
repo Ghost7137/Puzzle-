@@ -6,10 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Loaded="OnLoaded">
-
+    <Page.DataContext>
+        <local:MainPageViewModel/>
+    </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <NavigationView x:Name="RootView" SelectionChanged="OnSelectionChanged" IsSettingsVisible="False">
-            <NavigationView.MenuItems>
+        <NavigationView x:Name="RootView" SelectionChanged="OnSelectionChanged" SelectedItem="{Binding SelectedMenuItem,Mode=TwoWay}" MenuItemsSource="{Binding MenuItemsSource}" IsSettingsVisible="False">
+            <!--<NavigationView.MenuItems>
                 <NavigationViewItem Content="格式重命名工具" Tag="0">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8C8;"/>
@@ -25,7 +27,7 @@
                         <FontIcon Glyph="&#xF168;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-            </NavigationView.MenuItems>
+            </NavigationView.MenuItems>-->
             <Frame x:Name="ToolsView"/>
         </NavigationView>
     </Grid>
