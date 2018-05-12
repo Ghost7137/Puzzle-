@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,37 +21,90 @@ namespace ToolsSystem
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
+        #region 成员
+
+        public string _viewHeader;
+
+        private List<NavigationViewItem> _itemList;
+
+        #endregion
+
+        #region 事件
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region 属性
+
+        public string ViewHeader
+        {
+            get { return _viewHeader; }
+            set
+            {
+                if(_viewHeader != value)
+                {
+                    _viewHeader = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ViewHeader"));
+                }
+            }
+        }
+
+        public List<NavigationViewItem> MenuItemsSource { get { return _itemList; } }
+
+        #endregion
+
+        #region 构造函数
+
         public MainPage()
         {
             this.InitializeComponent();
         }
 
-        private void OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        #endregion
+
+        #region 方法
+
+        public void InstallPage()
         {
-            //if(!args.IsSettingsSelected)
-            //{
-            //    var selectedItem = args.SelectedItem as NavigationViewItem;
-            //    RootView.Header = selectedItem.Content;
-            //    switch (int.Parse(selectedItem.Tag.ToString()))
-            //    {
-            //        case 0:
-            //            ToolsView.Content = new BasicBulkRenameTool();
-            //            break;
-            //        case 1:
-            //            ToolsView.Content = new AdvanceBulkRenameTool();
-            //            break;
-            //        case 2:
-            //            ToolsView.Content = new GroupTool();
-            //            break;
-            //    }
-            //}
+            InstallItems();
         }
 
-        private void OnLoaded(object sender, RoutedEventArgs e)
+        private void InstallItems()
         {
-            //RootView.SelectedItem = RootView.MenuItems[0];
+            _itemList = new List<NavigationViewItem>();
+            _itemList.Add(new NavigationViewItem() { Content = LocalzationResourcesManager.Instance.MenuItemsFileTools, Icon = new FontIcon() { Glyph = ConstStrings.GlyphFile }, Tag = FrameTypes.FileToolsBrowserFrame, IsSelected = true });
+            _itemList.Add(new NavigationViewItem() { Content = LocalzationResourcesManager.Instance.MenuItemsFolderTools, Icon = new FontIcon() { Glyph = ConstStrings.GlyphFolder }, Tag = FrameTypes.FolderToolsBrowserFrame });
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(ConstStrings.MenuItemsSource));
+        }
+
+        #endregion
+
+        private void OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            if(args.IsSettingsSelected)
+            {
+
+            }
+            else
+            {
+                FrameTypes pageType = (FrameTypes)((args.SelectedItem as NavigationViewItem).Tag);
+                ViewHeader = (string)((args.SelectedItem as NavigationViewItem).Content);
+                switch (pageType)
+                {
+                    case FrameTypes.FileToolsBrowserFrame:
+
+                        break;
+                    case FrameTypes.FolderToolsBrowserFrame:
+
+                        break;
+                    default:
+
+                        break;
+                }
+            }
         }
     }
 }

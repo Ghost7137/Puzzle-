@@ -5,29 +5,9 @@
     xmlns:local="using:ToolsSystem"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Loaded="OnLoaded">
-    <Page.DataContext>
-        <local:MainPageViewModel/>
-    </Page.DataContext>
+    mc:Ignorable="d" Loaded="{x:Bind InstallPage}">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <NavigationView x:Name="RootView" SelectionChanged="OnSelectionChanged" SelectedItem="{Binding SelectedMenuItem,Mode=TwoWay}" MenuItemsSource="{Binding MenuItemsSource}" IsSettingsVisible="False">
-            <!--<NavigationView.MenuItems>
-                <NavigationViewItem Content="格式重命名工具" Tag="0">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE8C8;"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
-                <NavigationViewItem Content="批量重命名工具" Tag="1">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE8C8;"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
-                <NavigationViewItem Content="文件分组移动工具" Tag="2">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xF168;"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
-            </NavigationView.MenuItems>-->
+        <NavigationView x:Name="RootView" IsSettingsVisible="False" Header="{x:Bind ViewHeader,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MenuItemsSource="{x:Bind MenuItemsSource,Mode=OneWay}" SelectionChanged="OnSelectionChanged">
             <Frame x:Name="ToolsView"/>
         </NavigationView>
     </Grid>

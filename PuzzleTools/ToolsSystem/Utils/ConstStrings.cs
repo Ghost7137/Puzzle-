@@ -4,7 +4,7 @@
     {
         #region 属性名称
 
-        public static readonly string SelectedMenuItem = "SelectedMenuItem";
+        public static readonly string MenuItemsSource = "MenuItemsSource";
 
         #endregion
 
