@@ -7,8 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Templates/ItemTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid>
-
+        <GridView x:Name="ToolItemsGridView" IsItemClickEnabled="True" SelectionMode="Single" ItemTemplate="{StaticResource ToolItemTemplate}" SelectionChanged="ToolItemsGridView_SelectionChanged"/>
     </Grid>
 </Page>

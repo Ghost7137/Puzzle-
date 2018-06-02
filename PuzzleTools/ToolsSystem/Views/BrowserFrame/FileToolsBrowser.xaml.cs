@@ -26,5 +26,10 @@ namespace ToolsSystem
         {
             this.InitializeComponent();
         }
+
+        private void ToolItemsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

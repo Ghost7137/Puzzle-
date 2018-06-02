@@ -117,10 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Description_AdvanceBulkRenameTool" xml:space="preserve">
+    <value>可自定义设置无规律的模板对批量文件重命名</value>
+  </data>
+  <data name="Description_BulkRenameTool" xml:space="preserve">
+    <value>按照预设或自定义有规律的模板对批量（单个）文件重命名</value>
+  </data>
+  <data name="Description_FileInformationBrower" xml:space="preserve">
+    <value>用于查看批量（单个）文件信息</value>
+  </data>
+  <data name="Description_FileInformationEditor" xml:space="preserve">
+    <value>用于修改批量（单个）文件信息</value>
+  </data>
   <data name="MenuItemsFileTools" xml:space="preserve">
     <value>文件工具</value>
   </data>
   <data name="MenuItemsFolderTools" xml:space="preserve">
     <value>文件夹工具</value>
+  </data>
+  <data name="Tool_AdvanceBulkRenameTool" xml:space="preserve">
+    <value>高级批量重命名工具</value>
+  </data>
+  <data name="Tool_BulkRenameTool" xml:space="preserve">
+    <value>批量重命名工具</value>
+  </data>
+  <data name="Tool_FileInformationBrower" xml:space="preserve">
+    <value>文件信息查看器</value>
+  </data>
+  <data name="Tool_FileInformationEditor" xml:space="preserve">
+    <value>文件信息修改器</value>
   </data>
 </root>

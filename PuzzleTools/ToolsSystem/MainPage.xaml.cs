@@ -86,7 +86,7 @@ namespace ToolsSystem
         {
             if(args.IsSettingsSelected)
             {
-
+                // 未来实现设置功能
             }
             else
             {
@@ -101,7 +101,7 @@ namespace ToolsSystem
 
                         break;
                     default:
-
+                        // 未来添加其他页面
                         break;
                 }
             }
